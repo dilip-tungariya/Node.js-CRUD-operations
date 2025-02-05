@@ -21,7 +21,7 @@ Ensure you have the following installed:
 
 1. **Clone the repository**:
 
-   git clone https://github.com/dilip-tungariya/Node.js-CRUD-operations.git
+   git clone https://github.com/dilip-tungariya/Node.js-CRUD-operations-FireBase-FireStore.git
 
    cd Node.js-CRUD-operations
 
@@ -51,7 +51,7 @@ Ensure you have the following installed:
 4. **Start the application**:
 
     npm start
-    
+
     Note: The server will run on http://localhost:3000
 
 ## API Endpoints
