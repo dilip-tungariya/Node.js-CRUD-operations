@@ -24,11 +24,11 @@ async function createDocument(collectionName, documents) {
         try {
             const promises = documents.map(async (data) => {
                 const docRef = await addDoc(collection(db, collectionName), data);
-                return { referenceId: docRef.id, ...data };
+                return { bookId: docRef.id, ...data };
             });
             Promise.all(promises)
-                .then((referenceIds) => {
-                    resolve(referenceIds);
+                .then((books) => {
+                    resolve(books);
                 });
         } catch (err) {
             reject(err);
@@ -43,7 +43,7 @@ async function updateDocument(collectionName, documentId, data) {
             const docRef = doc(db, collectionName, documentId);
             updateDoc(docRef, data)
                 .then(() => {
-                    resolve('Document updated successfully');
+                    resolve('Book updated successfully');
                 });
         } catch (err) {
             reject(err);
@@ -58,7 +58,7 @@ async function deleteDocument(collectionName, documentId) {
             const docRef = doc(db, collectionName, documentId);
             deleteDoc(docRef)
                 .then(() => {
-                    resolve('Document deleted successfully');
+                    resolve('Book deleted successfully');
                 });
         } catch (err) {
             reject(err);

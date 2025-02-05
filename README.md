@@ -57,10 +57,78 @@ Ensure you have the following installed:
 ## API Endpoints
 
     Method	        Endpoint	                Description
+
     GET             /api/books	                Retrieve all books
+    Sample Response: 
+    {
+        "statusCode": 200,
+        "message": "Data found",
+        "data": [
+            {
+                "bookId": "7NzSpJnNM2nWonmqHGq9",
+                "Price": 100,
+                "Name": "test",
+                "Author": "test"
+            }
+        ]
+    }
+
     POST	        /api/books	                Create a new book
+    Request Object: 
+    For single book creation:
+        {
+            "Price": 250,
+            "Name": "test3",
+            "Author": "test3"
+        }
+    For Mutile books creation:
+    [
+        {
+            "Price": 250,
+            "Name": "test3",
+            "Author": "test3"
+        },
+        {
+            "Price": 300,
+            "Name": "test4",
+            "Author": "test4"
+        },
+    ]
+    Sample Response:
+    {
+        "statusCode": 200,
+        "message": "Book created successfully",
+        "data": [
+            {
+                "bookId": "5ScTn7cib4UtHpL1CRlR",
+                "Price": 250,
+                "Name": "test3",
+                "Author": "test3"
+            }
+        ]
+    }
+
     PUT             /api/books/:bookId	        Update an book by ID
+    API URL : http://localhost:3000/api/books/:bookId
+    Request Object: 
+    {
+        "Price": 250,
+        "Name": "test3",
+        "Author": "test3"
+    }
+    Sample Response:
+    {
+        "statusCode": 200,
+        "message": "Book updated successfully"
+    }
+
     DELETE	        /api/books/:bookId	        Delete an book by ID
+    API URL : http://localhost:3000/api/books/:bookId
+    Sample Response:
+    {
+        "statusCode": 200,
+        "message": "Book deleted successfully"
+    }
 
 ## Project Structure
 

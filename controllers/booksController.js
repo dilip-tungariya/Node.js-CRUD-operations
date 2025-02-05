@@ -8,7 +8,11 @@ const getAllBooksData = async (req, res) => {
             .then((result) => {
                 const books = [];
                 result.forEach((doc) => {
-                    books.push(doc.data());
+                    const obj = {
+                        bookId: doc.id,
+                        ...doc.data()
+                    };
+                    books.push(obj);
                 });
                 res.status(200).send({
                     statusCode: res.statusCode,
@@ -34,7 +38,7 @@ const createBookInFireBase = async (req, res) => {
             .then((result) => {
                 res.status(200).send({
                     statusCode: res.statusCode,
-                    message: books.length > 0 ? 'Documents created successfully' : 'Document created successfully',
+                    message: books.length > 1 ? 'Books created successfully' : 'Book created successfully',
                     data: result
                 });
             }).catch((err) => {
