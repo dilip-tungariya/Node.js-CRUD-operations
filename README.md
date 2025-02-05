@@ -45,7 +45,7 @@ Ensure you have the following installed:
 ## API Endpoints
 
     Method	        Endpoint	                Description
-    GET	            /api/books	                Retrieve all books
+    GET             /api/books	                Retrieve all books
     POST	        /api/books	                Create a new book
-    PUT	            /api/books/:bookId	        Update an book by ID
+    PUT             /api/books/:bookId	        Update an book by ID
     DELETE	        /api/books/:bookId	        Delete an book by ID
