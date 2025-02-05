@@ -22,24 +22,36 @@ Ensure you have the following installed:
 1. **Clone the repository**:
 
    git clone https://github.com/dilip-tungariya/Node.js-CRUD-operations.git
+
    cd Node.js-CRUD-operations
 
 2. **Install dependencies**:
     npm install
 
 3. **Configure environment variables**:
+
     a) Create a .env file in the root directory
+
     b) Add your Firebase configuration details to the .env file:
+
         FIREBASE_API_KEY=your_api_key
+
         FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+
         FIREBASE_PROJECT_ID=your_project_id
+
         FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+
         FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+
         FIREBASE_APP_ID=your_app_id
+
     Note: Replace the placeholders with actual Firebase project details
 
 4. **Start the application**:
+
     npm start
+    
     Note: The server will run on http://localhost:3000
 
 ## API Endpoints
