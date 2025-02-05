@@ -1,19 +1,19 @@
 require('dotenv').config();
 const { getAllDocuments, createDocument, updateDocument, deleteDocument } = require('../firebase/firebase-methods');
 
-// get method for getting all documents from a collection in firebase
-const getAllFireBaseData = async (req, res) => {
+// get method for getting all books from a collection in firebase
+const getAllBooksData = async (req, res) => {
     try {
         getAllDocuments(process.env.FireBase_CollectionName)
             .then((result) => {
-                const documents = [];
+                const books = [];
                 result.forEach((doc) => {
-                    documents.push(doc.data());
+                    books.push(doc.data());
                 });
                 res.status(200).send({
                     statusCode: res.statusCode,
-                    message: documents.length > 0 ? 'Data found' : 'No data found!',
-                    data: documents
+                    message: books.length > 0 ? 'Data found' : 'No data found!',
+                    data: books
                 });
             });
     } catch (err) {
@@ -21,20 +21,20 @@ const getAllFireBaseData = async (req, res) => {
     }
 }
 
-// create method for creating single or multiple documents from a collection in firebase
-const createDocumentInFireBase = async (req, res) => {
+// create method for creating single or multiple books from a collection in firebase
+const createBookInFireBase = async (req, res) => {
     try {
-        let documents = [];
+        let books = [];
         if (!Array.isArray(req.body)) {
-            documents.push(req.body);
+            books.push(req.body);
         } else {
-            documents = req.body;
+            books = req.body;
         }
-        createDocument(process.env.FireBase_CollectionName, documents)
+        createDocument(process.env.FireBase_CollectionName, books)
             .then((result) => {
                 res.status(200).send({
                     statusCode: res.statusCode,
-                    message: documents.length > 0 ? 'Documents created successfully' : 'Document created successfully',
+                    message: books.length > 0 ? 'Documents created successfully' : 'Document created successfully',
                     data: result
                 });
             }).catch((err) => {
@@ -45,10 +45,10 @@ const createDocumentInFireBase = async (req, res) => {
     }
 }
 
-// update method for updating single document data in firebase
-const updateDocumentInFireBase = async (req, res) => {
+// update method for updating single book data in firebase
+const updateBookInFireBase = async (req, res) => {
     try {
-        updateDocument(process.env.FireBase_CollectionName, req.params.documentId, req.body)
+        updateDocument(process.env.FireBase_CollectionName, req.params.bookId, req.body)
             .then((result) => {
                 res.status(200).send({
                     statusCode: res.statusCode,
@@ -62,10 +62,10 @@ const updateDocumentInFireBase = async (req, res) => {
     }
 }
 
-// delete method for deleting document in firebase
-const deleteDocumnetInFireBase = async (req, res) => {
+// delete method for deleting book in firebase
+const deleteBookInFireBase = async (req, res) => {
     try {
-        deleteDocument(process.env.FireBase_CollectionName, req.params.documentId)
+        deleteDocument(process.env.FireBase_CollectionName, req.params.bookId)
             .then((result) => {
                 res.status(200).send({
                     statusCode: res.statusCode,
@@ -80,8 +80,8 @@ const deleteDocumnetInFireBase = async (req, res) => {
 }
 
 module.exports = {
-    get: getAllFireBaseData,
-    create: createDocumentInFireBase,
-    update: updateDocumentInFireBase,
-    deleteDoc: deleteDocumnetInFireBase
+    get: getAllBooksData,
+    create: createBookInFireBase,
+    update: updateBookInFireBase,
+    deleteDoc: deleteBookInFireBase
 }
