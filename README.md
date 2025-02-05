@@ -61,3 +61,21 @@ Ensure you have the following installed:
     POST	        /api/books	                Create a new book
     PUT             /api/books/:bookId	        Update an book by ID
     DELETE	        /api/books/:bookId	        Delete an book by ID
+
+## Project Structure
+
+    Node.js-CRUD-operations/
+    ├── bin/
+    │   └── www                         # Server entry point
+    ├── controllers/
+    │   └── booksController.js          # Controller for book operations
+    ├── firebase/
+    │   └── firebase-connection.js      # Firebase configuration
+    │   └── firebase-methods.js         # Firebase functions
+    ├── routes/
+    │   └── bookRoutes.js               # API routes
+    ├── .env                            # Environment variables
+    ├── .gitignore
+    ├── app.js                          # Application setup
+    ├── package.json
+    └── README.md
